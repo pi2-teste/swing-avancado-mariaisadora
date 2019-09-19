@@ -10,5 +10,55 @@ package br.senac.sp.aula5;
  * @author seunome.sobrenome
  */
 public class Computador {
+    static String  fabricante = "seunome";
+    String tipoComputador;
+    String sistemaOperacional;
+    String HD;
+    String[] acessorios;
+    String[] serviços;
+    
+    public Computador(){
         
+    }
+
+    public String getTipoComputador() {
+        return tipoComputador;
+    }
+
+    public void setTipoComputador(String tipoComputador) {
+        this.tipoComputador = tipoComputador;
+    }
+
+    public String getSistemaOperacional() {
+        return sistemaOperacional;
+    }
+
+    public void setSistemaOperacional(String sistemaOperacional) {
+        this.sistemaOperacional = sistemaOperacional;
+    }
+
+    public String getHD() {
+        return HD;
+    }
+
+    public void setHD(String HD) {
+        this.HD = HD;
+    }
+
+    public String[] getAcessorios() {
+        return acessorios;
+    }
+
+    public void setAcessorios(String[] acessorios) {
+        this.acessorios = acessorios;
+    }
+
+    public String[] getServiços() {
+        return serviços;
+    }
+
+    public void setServiços(String[] serviços) {
+        this.serviços = serviços;
+    }
+    
 }
