@@ -50,16 +50,16 @@ public class VendaComputadorView extends javax.swing.JFrame {
         notebook = new javax.swing.JRadioButton();
         servidor = new javax.swing.JRadioButton();
         pnlSO = new javax.swing.JPanel();
-        jToggleButtonW = new javax.swing.JToggleButton();
-        jToggleButtonL = new javax.swing.JToggleButton();
+        windowsButton = new javax.swing.JToggleButton();
+        linuxButton = new javax.swing.JToggleButton();
         pnlHD = new javax.swing.JPanel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        jComboBox1 = new javax.swing.JComboBox<String>();
         pnlAcessorios = new javax.swing.JPanel();
         jCheckBox1 = new javax.swing.JCheckBox();
         jCheckBox2 = new javax.swing.JCheckBox();
         jCheckBox3 = new javax.swing.JCheckBox();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        jList1 = new javax.swing.JList<String>();
         btnSalvar = new javax.swing.JButton();
         btnCancelar = new javax.swing.JButton();
         jMenuBar1 = new javax.swing.JMenuBar();
@@ -132,18 +132,23 @@ public class VendaComputadorView extends javax.swing.JFrame {
 
         pnlSO.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Sistema Operacional", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        buttonGroup4.add(jToggleButtonW);
-        jToggleButtonW.setText("Windows");
-        jToggleButtonW.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jToggleButtonW.addActionListener(new java.awt.event.ActionListener() {
+        buttonGroup4.add(windowsButton);
+        windowsButton.setText("Windows");
+        windowsButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        windowsButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jToggleButtonWActionPerformed(evt);
+                windowsButtonActionPerformed(evt);
             }
         });
 
-        buttonGroup4.add(jToggleButtonL);
-        jToggleButtonL.setText("Linux");
-        jToggleButtonL.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        buttonGroup4.add(linuxButton);
+        linuxButton.setText("Linux");
+        linuxButton.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        linuxButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                linuxButtonActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pnlSOLayout = new javax.swing.GroupLayout(pnlSO);
         pnlSO.setLayout(pnlSOLayout);
@@ -151,9 +156,9 @@ public class VendaComputadorView extends javax.swing.JFrame {
             pnlSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pnlSOLayout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addComponent(jToggleButtonW, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(windowsButton, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jToggleButtonL, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(linuxButton, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         pnlSOLayout.setVerticalGroup(
@@ -161,14 +166,14 @@ public class VendaComputadorView extends javax.swing.JFrame {
             .addGroup(pnlSOLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(pnlSOLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jToggleButtonW)
-                    .addComponent(jToggleButtonL))
+                    .addComponent(windowsButton)
+                    .addComponent(linuxButton))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pnlHD.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Escolha o tipo de capacidade do HD", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HDD 1TB", "SSD 256 GB", "SSD 1TB" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "HDD 1TB", "SSD 256 GB", "SSD 1TB" }));
         jComboBox1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jComboBox1ActionPerformed(evt);
@@ -200,10 +205,10 @@ public class VendaComputadorView extends javax.swing.JFrame {
 
         jCheckBox3.setText("Mochila");
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        jList1.setModel(new javax.swing.AbstractListModel() {
             String[] strings = { "Garantia Extendida", "Suporte no Local", "Suporte 24 horas", "Instalação do SO" };
             public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+            public Object getElementAt(int i) { return strings[i]; }
         });
         jScrollPane1.setViewportView(jList1);
 
@@ -335,9 +340,9 @@ public class VendaComputadorView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jComboBox1ActionPerformed
 
-    private void jToggleButtonWActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButtonWActionPerformed
+    private void windowsButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_windowsButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jToggleButtonWActionPerformed
+    }//GEN-LAST:event_windowsButtonActionPerformed
 
     private void notebookActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_notebookActionPerformed
         // TODO add your handling code here:
@@ -352,15 +357,31 @@ public class VendaComputadorView extends javax.swing.JFrame {
     private void btnSalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalvarActionPerformed
         // TODO add your handling code here:
         Computador ncomputador = new Computador();
-        btnSalvar.setTipoComputador(pc.get());
-        
-        JOptionPane.showMessageDialog("Obrigado por comprar um" + TipoComputador + "com" + SistemaOperacional);
+        if(pc.isSelected()){
+            ncomputador.setTipoComputador(pc.getText());
+            JOptionPane.showMessageDialog(null , "Obrigado por comprar um Computador conosco!");
+        }
+        else if (notebook.isSelected()){
+            ncomputador.setTipoComputador(notebook.getText());
+            JOptionPane.showMessageDialog(null , "Obrigado por comprar Notebook conosco!");
+        }
+        else if (servidor.isSelected()){
+            ncomputador.setTipoComputador(servidor.getText());
+            JOptionPane.showMessageDialog(null ,"Obrigado por comprar um Servidor conosco!");
+        }
+        else {
+           JOptionPane.showMessageDialog(null , "Você deve selecionar uma opção!"); 
+        }
     }//GEN-LAST:event_btnSalvarActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jMenuItem2ActionPerformed
+
+    private void linuxButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_linuxButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_linuxButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -418,9 +439,8 @@ public class VendaComputadorView extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JToggleButton jToggleButtonL;
-    private javax.swing.JToggleButton jToggleButtonW;
     private javax.swing.JLabel lblImagem;
+    private javax.swing.JToggleButton linuxButton;
     private javax.swing.JRadioButton notebook;
     private javax.swing.JRadioButton pc;
     private javax.swing.JPanel pnlAcessorios;
@@ -428,5 +448,6 @@ public class VendaComputadorView extends javax.swing.JFrame {
     private javax.swing.JPanel pnlHD;
     private javax.swing.JPanel pnlSO;
     private javax.swing.JRadioButton servidor;
+    private javax.swing.JToggleButton windowsButton;
     // End of variables declaration//GEN-END:variables
 }
